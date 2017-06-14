@@ -41,6 +41,7 @@ for f in $hadoop_home/lib/jackson-*.jar; do
 	CLASSPATH=${CLASSPATH}:$f;
 done
 
+echo "CLASSPATH: $CLASSPATH";
 db="$1";
 tbl="$2";
 num_recs="$3";
@@ -69,4 +70,4 @@ args="$arg1 $arg2 $arg3 $arg4";
 
 logf="stdout.$tbl"; # unused
 
-time exec java -Xmx1024M -Djava.library.path=$JAVA_LIBRARY_PATH -classpath "$CLASSPATH" org.datagen.db.test.DBGen $args
+time exec java -Xmx1024M -Djava.library.path=$JAVA_LIBRARY_PATH -classpath "$CLASSPATH" org.datagen.test.DBGen $args
